@@ -68,3 +68,32 @@ export const eventLogByUnitAndTimeStamp = /* GraphQL */ `
     }
   }
 `;
+export const enventlogByTimestamp = /* GraphQL */ `
+  query EnventlogByTimestamp(
+    $timeStamp: AWSDateTime!
+    $sortDirection: ModelSortDirection
+    $filter: ModelEventLogFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    enventlogByTimestamp(
+      timeStamp: $timeStamp
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        unit
+        timeStamp
+        park
+        statusCode
+        description
+        createdOn
+        updatedOn
+      }
+      nextToken
+    }
+  }
+`;

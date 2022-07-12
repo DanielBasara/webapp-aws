@@ -275,6 +275,32 @@ export type EventLogByUnitAndTimeStampQuery = {
   } | null,
 };
 
+export type EnventlogByTimestampQueryVariables = {
+  timeStamp: string,
+  sortDirection?: ModelSortDirection | null,
+  filter?: ModelEventLogFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type EnventlogByTimestampQuery = {
+  enventlogByTimestamp?:  {
+    __typename: "ModelEventLogConnection",
+    items:  Array< {
+      __typename: "EventLog",
+      id: string,
+      unit: string,
+      timeStamp: string,
+      park: string,
+      statusCode?: number | null,
+      description: string,
+      createdOn: string,
+      updatedOn: string,
+    } | null >,
+    nextToken?: string | null,
+  } | null,
+};
+
 export type OnCreateEventLogSubscription = {
   onCreateEventLog?:  {
     __typename: "EventLog",
